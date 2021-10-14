@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class IkControl : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class IkControl : MonoBehaviour
     //Вызывается при расчёте IK
     void OnAnimatorIK()
     {
+        Profiler.BeginSample("MyScript");
         if (_oldTest)
         {
             if (animator)
@@ -100,7 +102,7 @@ public class IkControl : MonoBehaviour
 
             IegsIK();
         }
-
+        Profiler.EndSample();
     }
 
 
